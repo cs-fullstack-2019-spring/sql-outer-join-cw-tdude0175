@@ -55,3 +55,17 @@ select * from departments left join employees on employees.department_id = depar
 select * from departments
     left join employees on employees.department_id = departments.department_id
 where employee_id notnull;
+
+-- Challenge) Create a Join that lists the number of employees per department
+-- Create a join that only lists employees assigned to an apartment who also have a company laptop assigned
+
+
+
+select department_name , count(departments.department_id) from departments
+    right join employees on employees.department_id = departments.department_id
+where department_name notnull
+group by department_name;
+
+
+select * from employees left join departments on employees.department_id = departments.department_id
+where laptop_type notnull and employees.department_id notnull ;
